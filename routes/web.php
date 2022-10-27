@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ZoneVertesController;
+use App\Http\Controllers\participantController;
 use App\Http\Controllers\associationController;
 use App\Http\Controllers\EvenementController;
-use App\Http\Controllers\BenevoleController;
-use App\Http\Controllers\AdherentController;
+use App\Http\Controllers\VeloController;
+
+// use App\Http\Controllers\AdherentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,23 +33,25 @@ Route::middleware([
     })->name('dashboard');
 });
 // Route::resource('/', ZoneVertesController::class);
-Route::resource('/zoneVertes', ZoneVertesController::class);
+Route::resource('/participant', participantController::class);
 Route::resource('/association', associationController::class);
 Route::resource('/evenement', EvenementController::class);
-Route::resource("/benevole", BenevoleController::class);
-Route::resource('/adherent', AdherentController::class);
+Route::resource('/velo', VeloController::class);
+// Route::resource('/adherent', AdherentController::class);
 
 Route::get('/association/pdf/{id}',[associationController::class,'createpdf']);
 Route::resource('/search',associationController::class);
 
-Route::get('/zoneVertes/pdf/{id}',[ZoneVertesController::class,'createpdf']);
-Route::resource('/search',ZoneVertesController::class);
+Route::get('/participant/pdf/{id}',[participantController::class,'createpdf']);
+Route::resource('/search',participantController::class);
 
 Route::get('/evenement/pdf/{id}',[EvenementController::class,'createpdf']);
 Route::resource('/search',EvenementController::class);
 
-Route::get('/benevole/pdf/{id}',[EvenementController::class,'createpdf']);
-Route::resource('/search',EvenementController::class);
+Route::get('/velo/pdf/{id}',[VeloController::class,'createpdf']);
+Route::resource('/search',VeloController::class);
 
-Route::get('/adherent/pdf/{id}',[AdherentController::class,'createpdf']);
-Route::resource('/search',AdherentController::class);
+
+
+// Route::get('/adherent/pdf/{id}',[AdherentController::class,'createpdf']);
+// Route::resource('/search',AdherentController::class);

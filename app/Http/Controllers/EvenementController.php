@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Evenement;
 use Illuminate\Http\Request;
-use App\Models\ZoneVertes; 
+use App\Models\velo; 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Validation\ValidationException;
@@ -34,14 +34,15 @@ class EvenementController extends Controller
     
     public function create()
     {
-        $ZoneVertes = ZoneVertes::all();
+        $velo = velo::all();
 
-        return view('evenement.create')->with('ZoneVertes', $ZoneVertes);;
+        return view('evenement.create')->with('velo', $velo);;
     }
  
   
     public function store(Request $request)
     {
+     
         $file_extension = $request -> photo -> getClientOriginalExtension();
         $file_name = time().$file_extension;
         $path = 'image/evenement';
@@ -52,8 +53,7 @@ class EvenementController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'startDate' => $request->startDate,
-            'zonevertes_id' => $request->zonevertes_id,
-        
+            'velo_id' => $request->velo_id,
             'photo' => $file_name,
 
 

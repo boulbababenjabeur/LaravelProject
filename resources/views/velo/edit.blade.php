@@ -1,7 +1,20 @@
 
+
+
+
+
+
+
 @extends('layouts.app')
+
+
+
 @section('styles')
+
 @endsection
+
+
+
 @section('content')
 <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
@@ -28,33 +41,20 @@
    <!-- MAIN CONTENT -->
 
    <div class="card">
-  <div class="card-header">Ajouter Evenement</div>
+  <div class="card-header">velo Page</div>
   <div class="card-body">
       
-      <form action="{{ url('evenement') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ url('velo/' .$velo->id) }}" method="post">
         {!! csrf_field() !!}
-        <label>Name</label></br>
-    
-        <input type="text" name="name" id="name" class="form-control"></br>
-        <label>Description</label></br>
-     
-        <input type="text" name="description" id="description" class="form-control"></br>
-        <label>Start Date</label></br>
-  
-        <input type="date" name="startDate" id="startDate" class="form-control"></br>
-
-        <select id="velo_id" name="velo_id" class="form-control ">
-        @foreach($velo as $i)
-        <option value="{{ $i->id }}">{{ $i->nomVelo }}</option>
-         @endforeach
-</select>
-<div class="form-group">
-                <label for="exampleInputEmail1"> Photo:</label>
-                <input type="file" class="form-control" name="photo">
-              
-            </div>
-
-        <input type="submit" value="Save" class="btn btn-success"></br>
+        @method("PATCH")
+        <input type="hidden" name="id" id="id" value="{{$velo->id}}" id="id" />
+        <label>nomVelo</label></br>
+        <input type="text" name="nomVelo" id="nomVelo" value="{{$velo->nomVelo}}" class="form-control"></br>
+        <label>couleur</label></br>
+        <input type="text" name="couleur" id="couleur" value="{{$velo->couleur}}" class="form-control"></br>
+        <label>type</label></br>
+        <input type="text" name="type" id="type" value="{{$velo->type}}" class="form-control"></br>
+        <input type="submit" value="Update" class="btn btn-success"></br>
     </form>
   
   </div>

@@ -41,9 +41,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/zoneVertes" class="nav-link">
+                <a href="/participant" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>zone verte</p>
+                  <p>participant</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -52,19 +52,20 @@
                   <p>Evenement</p>
                 </a>
               </li>
-
               <li class="nav-item">
-                <a href="/benevole" class="nav-link active">
+                <a href="/velo" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Benvoles</p>
+                  <p>Velos</p>
                 </a>
               </li>
-              <li class="nav-item">
+
+             
+              <!-- <li class="nav-item">
                 <a href="/adherent" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Adherent</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
          

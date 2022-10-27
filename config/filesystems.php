@@ -51,9 +51,9 @@ return [
             'visibility' => 'public',
         ],
 
-        'zoneVertes' => [
+        'participant' => [
             'driver' => 'local',
-            'root' => base_path() . 'public/images/zoneVertes/',
+            'root' => base_path() . 'public/images/participant/',
             'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
         ],

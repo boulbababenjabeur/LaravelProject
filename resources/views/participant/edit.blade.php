@@ -1,7 +1,20 @@
 
+
+
+
+
+
+
 @extends('layouts.app')
+
+
+
 @section('styles')
+
 @endsection
+
+
+
 @section('content')
 <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
@@ -28,33 +41,20 @@
    <!-- MAIN CONTENT -->
 
    <div class="card">
-  <div class="card-header">Ajouter Evenement</div>
+  <div class="card-header">participants Page</div>
   <div class="card-body">
       
-      <form action="{{ url('evenement') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ url('participant/' .$participant->id) }}" method="post">
         {!! csrf_field() !!}
-        <label>Name</label></br>
-    
-        <input type="text" name="name" id="name" class="form-control"></br>
-        <label>Description</label></br>
-     
-        <input type="text" name="description" id="description" class="form-control"></br>
-        <label>Start Date</label></br>
-  
-        <input type="date" name="startDate" id="startDate" class="form-control"></br>
-
-        <select id="velo_id" name="velo_id" class="form-control ">
-        @foreach($velo as $i)
-        <option value="{{ $i->id }}">{{ $i->nomVelo }}</option>
-         @endforeach
-</select>
-<div class="form-group">
-                <label for="exampleInputEmail1"> Photo:</label>
-                <input type="file" class="form-control" name="photo">
-              
-            </div>
-
-        <input type="submit" value="Save" class="btn btn-success"></br>
+        @method("PATCH")
+        <input type="hidden" name="id" id="id" value="{{$participant->id}}" id="id" />
+        <label>nom</label></br>
+        <input type="text" name="nom" id="nom" value="{{$participant->nom}}" class="form-control"></br>
+        <label>prenom</label></br>
+        <input type="text" name="prenom" id="prenom" value="{{$participant->prenom}}" class="form-control"></br>
+        <label>age</label></br>
+        <input type="text" name="age" id="age" value="{{$participant->age}}" class="form-control"></br>
+        <input type="submit" value="Update" class="btn btn-success"></br>
     </form>
   
   </div>
